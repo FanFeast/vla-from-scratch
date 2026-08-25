@@ -1,6 +1,6 @@
 # VLA From Scratch
 
-A Karpathy-style, build-it-yourself tutorial for **Vision-Language-Action
+A build-it-yourself tutorial for **Vision-Language-Action
 (VLA)** models. Start with a 3-layer CNN on a toy pushing task and end with a
 SmolVLA-like architecture — SigLIP vision + SmolLM2 language + a flow-matching
 action expert — trained on real robot data, LoRA fine-tuned, and evaluated
