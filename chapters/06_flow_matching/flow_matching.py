@@ -811,7 +811,17 @@ def evaluate_live_pusht(
             action_norm = action_buffer.pop(0)
             action = action_stats.denormalize(action_norm).numpy().astype(np.float32)
 
-            obs, reward, terminated, truncated, info = env.step(action)
+            try:
+                obs, reward, terminated, truncated, info = env.step(action)
+            except Exception as exc:
+                # A diverging policy can drive the simulator into an invalid
+                # state (e.g. mujoco mjWARN_BADQACC). Score this episode a
+                # failure and continue, rather than aborting the whole run --
+                # a failing policy is a result, not a crash.
+                print(f"  [live-pusht] ep {ep}: simulator diverged "
+                      f"({type(exc).__name__}); scoring episode as failure")
+                info = {}
+                break
             done = terminated or truncated
             step += 1
             max_coverage = max(max_coverage, reward)
@@ -912,7 +922,17 @@ def evaluate_live_aloha(
             action = action_stats.denormalize(action_norm).numpy().astype(np.float32)
             action = np.clip(action, -1.0, 1.0)
 
-            obs, reward, terminated, truncated, info = env.step(action)
+            try:
+                obs, reward, terminated, truncated, info = env.step(action)
+            except Exception as exc:
+                # A diverging policy can drive the simulator into an invalid
+                # state (e.g. mujoco mjWARN_BADQACC). Score this episode a
+                # failure and continue, rather than aborting the whole run --
+                # a failing policy is a result, not a crash.
+                print(f"  [live-aloha] ep {ep}: simulator diverged "
+                      f"({type(exc).__name__}); scoring episode as failure")
+                info = {}
+                break
             done = terminated or truncated
             step += 1
 
