@@ -1,0 +1,16 @@
+[project]
+name = "ch02-vision-backbone"
+version = "0.1.0"
+description = "Chapter 2: Pretrained vision encoders for VLAs"
+requires-python = "==3.12.*"
+dependencies = [
+    "numpy>=1.24",
+    "torch>=2.1",
+    "torchvision>=0.16",
+    "matplotlib>=3.7",
+    "gymnasium>=0.29",
+    "transformers>=4.36",
+    "scikit-learn>=1.3",
+    "pygame>=2.5",
+    "pytest>=7.0",
+]

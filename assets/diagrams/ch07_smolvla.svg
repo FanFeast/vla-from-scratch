@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" role="img">
+  <style>
+  .bg     { fill: #fcfcfd; }
+  .ink    { fill: #1b2430; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .muted  { fill: #66727f; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono   { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .title  { font-size: 17px; font-weight: 600; }
+  .sub    { font-size: 12px; }
+  .lbl    { font-size: 13px; font-weight: 600; }
+  .small  { font-size: 11px; }
+  .tiny   { font-size: 10px; }
+  .frozen    { fill: #e7edf6; stroke: #9cb1cd; stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .trainable { fill: #ffefd9; stroke: #df8f38; stroke-width: 1.6; }
+  .data      { fill: #f1f3f6; stroke: #c2c9d3; stroke-width: 1.3; }
+  .plain     { fill: none; stroke: #c2c9d3; stroke-width: 1.3; }
+  .wire   { stroke: #7d8896; stroke-width: 1.5; fill: none; }
+  .wire-a { stroke: #df8f38; stroke-width: 1.8; fill: none; }
+  .wire-d { stroke: #7d8896; stroke-width: 1.4; fill: none; stroke-dasharray: 4 3; }
+</style>
+  <defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7d8896"/>
+  </marker>
+  <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#df8f38"/>
+  </marker>
+</defs>
+  <rect class="bg" width="900" height="560"/>
+  <text class="ink title" x="24" y="30" text-anchor="start">SmolVLA, assembled</text>
+  <text class="muted sub" x="24" y="49" text-anchor="start">Ch 7 - 323.7M parameters, of which 20.8M train.</text>
+  <rect class="data" x="40" y="84" width="150" height="40" rx="7"/>
+  <text class="ink lbl" x="115.0" y="100.0" text-anchor="middle">Image</text>
+  <text class="muted small" x="115.0" y="116.0" text-anchor="middle">512 x 512</text>
+  <rect class="data" x="40" y="250" width="150" height="40" rx="7"/>
+  <text class="ink lbl" x="115.0" y="266.0" text-anchor="middle">Instruction</text>
+  <text class="muted small" x="115.0" y="282.0" text-anchor="middle">text</text>
+  <rect class="data" x="40" y="322" width="150" height="40" rx="7"/>
+  <text class="ink lbl" x="115.0" y="338.0" text-anchor="middle">State</text>
+  <text class="muted small" x="115.0" y="354.0" text-anchor="middle">6 DOF</text>
+  <rect class="frozen" x="230" y="78" width="165" height="52" rx="7"/>
+  <text class="ink lbl" x="312.5" y="100.0" text-anchor="middle">SigLIP</text>
+  <text class="muted small" x="312.5" y="116.0" text-anchor="middle">86M -&gt; 1024 tokens</text>
+  <rect class="trainable" x="230" y="148" width="165" height="46" rx="7"/>
+  <text class="ink lbl" x="312.5" y="167.0" text-anchor="middle">pixel shuffle 4x4</text>
+  <text class="muted small" x="312.5" y="183.0" text-anchor="middle">1024 -&gt; 64 tokens</text>
+  <rect class="frozen" x="230" y="244" width="165" height="52" rx="7"/>
+  <text class="ink lbl" x="312.5" y="274.0" text-anchor="middle">SmolLM2 tokenizer</text>
+  <rect class="trainable" x="230" y="316" width="165" height="52" rx="7"/>
+  <text class="ink lbl" x="312.5" y="338.0" text-anchor="middle">Linear 6 -&gt; 960</text>
+  <text class="muted small" x="312.5" y="354.0" text-anchor="middle">1 token</text>
+  <path class="wire" d="M 190 104 L 228 104" marker-end="url(#a)"/>
+  <path class="wire" d="M 312 130 L 312 146" marker-end="url(#a)"/>
+  <path class="wire" d="M 190 270 L 228 270" marker-end="url(#a)"/>
+  <path class="wire" d="M 190 342 L 228 342" marker-end="url(#a)"/>
+  <rect class="data" x="450" y="148" width="150" height="220" rx="7"/>
+  <text class="ink lbl" x="525.0" y="262.0" text-anchor="middle"></text>
+  <text class="ink lbl" x="525.0" y="168" text-anchor="middle">prefix</text>
+  <text class="muted small" x="525" y="200" text-anchor="middle">64 vision tokens</text>
+  <text class="muted small" x="525" y="222" text-anchor="middle">+ language tokens</text>
+  <text class="muted small" x="525" y="244" text-anchor="middle">+ 1 state token</text>
+  <path class="wire-d" d="M 470 262 L 580 262"/>
+  <text class="ink small" x="525" y="284" text-anchor="middle">one sequence</text>
+  <path class="wire" d="M 395 171 L 424 171 L 424 200"/>
+  <path class="wire" d="M 424 200 L 448 200" marker-end="url(#a)"/>
+  <path class="wire" d="M 395 270 L 424 270 L 424 258"/>
+  <path class="wire" d="M 424 258 L 448 258" marker-end="url(#a)"/>
+  <path class="wire" d="M 395 342 L 424 342 L 424 316"/>
+  <path class="wire" d="M 424 316 L 448 316" marker-end="url(#a)"/>
+  <rect class="frozen" x="650" y="148" width="200" height="108" rx="7"/>
+  <text class="ink lbl" x="750.0" y="198.0" text-anchor="middle">SmolLM2</text>
+  <text class="muted small" x="750.0" y="214.0" text-anchor="middle">205M, first 16 of 32 layers</text>
+  <text class="muted small" x="750" y="236" text-anchor="middle">read hidden states at L5, L10, L16</text>
+  <path class="wire" d="M 600 202 L 648 202" marker-end="url(#a)"/>
+  <rect class="trainable" x="650" y="300" width="200" height="96" rx="7"/>
+  <text class="ink lbl" x="750.0" y="344.0" text-anchor="middle">Action expert</text>
+  <text class="muted small" x="750.0" y="360.0" text-anchor="middle">20.8M, 6 layers</text>
+  <text class="muted small" x="750" y="372" text-anchor="middle">3 self-attn + 3 cross-attn</text>
+  <path class="wire-a" d="M 750 256 L 750 298" marker-end="url(#aa)"/>
+  <rect class="data" x="650" y="428" width="200" height="46" rx="7"/>
+  <text class="ink lbl" x="750.0" y="455.0" text-anchor="middle">Action chunk  10 x 6</text>
+  <path class="wire-a" d="M 750 396 L 750 426" marker-end="url(#aa)"/>
+  <text class="ink lbl" x="40" y="428" text-anchor="start">Why truncate the LM at layer 16?</text>
+  <text class="muted small" x="40" y="450" text-anchor="start">Layers 17-32 exist to produce text. We never</text>
+  <text class="muted small" x="40" y="465" text-anchor="start">generate text - we read hidden states. Half</text>
+  <text class="muted small" x="40" y="480" text-anchor="start">the depth, no measured loss.</text>
+  <rect class="frozen" x="40" y="513" width="16" height="12" rx="3"/>
+  <text class="muted small" x="64" y="523" text-anchor="start">frozen - 302.9M</text>
+  <rect class="trainable" x="40" y="533" width="16" height="12" rx="3"/>
+  <text class="muted small" x="64" y="543" text-anchor="start">trainable - 20.8M (6.4%)</text>
+</svg>

@@ -1,0 +1,88 @@
+===== RUN 1: r=8 LoRA-only (headline) =====
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] Model config: pad_token_id must be `None` or an integer within the vocabulary (between 0 and 31999), got 128002. This may result in unexpected behavior.
+
+============================================================
+  Chapter 8: LoRA fine-tuning -- so100
+============================================================
+  LoRA rank=8, alpha=16, train_expert=False
+  Device: cuda
+
+[SmolVLA] Loading HuggingFaceTB/SmolVLM2-500M-Video-Instruct...
+Loading weights:   0%|          | 0/488 [00:00<?, ?it/s]Loading weights: 100%|██████████| 488/488 [00:00<00:00, 23068.48it/s]
+[transformers] [1mSmolVLMModel LOAD REPORT[0m from: HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[SmolVLA] VLM truncated: 32 -> 16 layers
+[SmolVLA] Frozen: vision=86.4M, VLM=204.6M, connector=11.8M
+[SmolVLA] Parameters: total=323.7M, trainable=20.8M, frozen=302.9M
+[finetune] Warm-started expert from vla_so100_best.pt
+[finetune] Injected LoRA into 32 VLM linear layers
+LoRA r=8, alpha=16, targets=('q_proj', 'v_proj')
+  total      = 324.11M
+  trainable  = 21.25M (6.56%)
+  frozen     = 302.86M
+[cache] Loading from /home/mukul/fanfeast-stuff/vla-from-scratch/chapters/07_full_vla/checkpoints/vla_cache.pt
+[split] 138 train episodes (65375 frames), 20 val episodes (12925 frames)
+[finetune] Optimizing 0.41M params (LoRA=0.41M)
+[finetune] Baseline (Ch07 frozen backbone) val loss: 0.13427
+  Epoch   1/50 | train=0.06088 | val=0.13232 | 98.5s
+  Epoch   2/50 | train=0.05906 | val=0.13219 | 98.3s
+  Epoch   3/50 | train=0.05670 | val=0.12944 | 98.3s
+  Epoch   4/50 | train=0.05563 | val=0.13110 | 98.3s
+  Epoch   5/50 | train=0.05543 | val=0.13177 | 98.2s
+  Epoch   6/50 | train=0.05465 | val=0.12850 | 98.2s
+  Epoch   7/50 | train=0.05471 | val=0.13114 | 98.3s
+  Epoch   8/50 | train=0.05409 | val=0.13414 | 98.3s
+  Epoch   9/50 | train=0.05335 | val=0.13189 | 98.2s
+  Epoch  10/50 | train=0.05331 | val=0.13171 | 98.3s
+  Epoch  11/50 | train=0.05252 | val=0.13253 | 98.2s
+  Epoch  12/50 | train=0.05165 | val=0.13353 | 98.3s
+  Epoch  13/50 | train=0.05178 | val=0.13229 | 98.3s
+  Epoch  14/50 | train=0.05104 | val=0.13735 | 98.2s
+  Epoch  15/50 | train=0.05078 | val=0.13506 | 98.3s
+  Epoch  16/50 | train=0.04959 | val=0.13394 | 98.4s
+  Epoch  17/50 | train=0.05004 | val=0.13293 | 98.2s
+  Epoch  18/50 | train=0.04954 | val=0.13432 | 98.2s
+  Epoch  19/50 | train=0.04967 | val=0.13185 | 98.2s
+  Epoch  20/50 | train=0.04947 | val=0.13311 | 98.2s
+  Epoch  21/50 | train=0.04881 | val=0.13359 | 98.3s
+  Epoch  22/50 | train=0.04811 | val=0.13275 | 98.3s
+  Epoch  23/50 | train=0.04894 | val=0.13211 | 98.3s
+  Epoch  24/50 | train=0.04792 | val=0.13223 | 98.3s
+  Epoch  25/50 | train=0.04759 | val=0.13456 | 98.3s
+  Epoch  26/50 | train=0.04808 | val=0.13278 | 98.2s
+  Epoch  27/50 | train=0.04752 | val=0.13453 | 98.2s
+  Epoch  28/50 | train=0.04751 | val=0.13466 | 98.3s
+  Epoch  29/50 | train=0.04682 | val=0.13183 | 98.2s
+  Epoch  30/50 | train=0.04617 | val=0.13314 | 98.2s
+  Epoch  31/50 | train=0.04566 | val=0.13320 | 98.2s
+  Epoch  32/50 | train=0.04601 | val=0.13242 | 98.2s
+  Epoch  33/50 | train=0.04615 | val=0.13649 | 98.3s
+  Epoch  34/50 | train=0.04587 | val=0.13267 | 98.2s
+  Epoch  35/50 | train=0.04530 | val=0.13479 | 98.2s
+  Epoch  36/50 | train=0.04566 | val=0.13433 | 98.3s
+  Epoch  37/50 | train=0.04406 | val=0.13291 | 98.2s
+  Epoch  38/50 | train=0.04401 | val=0.13819 | 98.2s
+  Epoch  39/50 | train=0.04451 | val=0.13760 | 98.3s
+  Epoch  40/50 | train=0.04455 | val=0.13808 | 98.3s
+  Epoch  41/50 | train=0.04410 | val=0.13495 | 98.3s
+  Epoch  42/50 | train=0.04393 | val=0.13896 | 98.3s
+  Epoch  43/50 | train=0.04394 | val=0.13430 | 98.3s
+  Epoch  44/50 | train=0.04344 | val=0.14046 | 98.3s
+  Epoch  45/50 | train=0.04297 | val=0.13581 | 98.2s
+  Epoch  46/50 | train=0.04378 | val=0.13477 | 98.3s
+  Epoch  47/50 | train=0.04279 | val=0.14017 | 98.2s
+  Epoch  48/50 | train=0.04302 | val=0.13826 | 98.2s
+  Epoch  49/50 | train=0.04303 | val=0.13929 | 98.2s
+  Epoch  50/50 | train=0.04257 | val=0.13560 | 98.2s
+
+[finetune] Best val loss: 0.12850
+[finetune] Adapter saved to /home/mukul/fanfeast-stuff/vla-from-scratch/chapters/08_finetuning/checkpoints
+[finetune] History saved to /home/mukul/fanfeast-stuff/vla-from-scratch/chapters/08_finetuning/checkpoints/lora_so100_r8_history.json
+

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="380" viewBox="0 0 820 380" role="img">
+  <style>
+  .bg     { fill: #fcfcfd; }
+  .ink    { fill: #1b2430; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .muted  { fill: #66727f; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono   { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .title  { font-size: 17px; font-weight: 600; }
+  .sub    { font-size: 12px; }
+  .lbl    { font-size: 13px; font-weight: 600; }
+  .small  { font-size: 11px; }
+  .tiny   { font-size: 10px; }
+  .frozen    { fill: #e7edf6; stroke: #9cb1cd; stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .trainable { fill: #ffefd9; stroke: #df8f38; stroke-width: 1.6; }
+  .data      { fill: #f1f3f6; stroke: #c2c9d3; stroke-width: 1.3; }
+  .plain     { fill: none; stroke: #c2c9d3; stroke-width: 1.3; }
+  .wire   { stroke: #7d8896; stroke-width: 1.5; fill: none; }
+  .wire-a { stroke: #df8f38; stroke-width: 1.8; fill: none; }
+  .wire-d { stroke: #7d8896; stroke-width: 1.4; fill: none; stroke-dasharray: 4 3; }
+</style>
+  <defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7d8896"/>
+  </marker>
+  <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#df8f38"/>
+  </marker>
+</defs>
+  <rect class="bg" width="820" height="380"/>
+  <text class="ink title" x="24" y="30" text-anchor="start">LoRA: adapt a frozen layer with two small matrices</text>
+  <text class="muted sub" x="24" y="49" text-anchor="start">Ch 8 - 0.41M trainable params adapt a 324M model.</text>
+  <rect class="data" x="60" y="150" width="90" height="44" rx="7"/>
+  <text class="ink lbl" x="105.0" y="176.0" text-anchor="middle">x</text>
+  <rect class="frozen" x="250" y="96" width="150" height="50" rx="7"/>
+  <text class="ink lbl" x="325.0" y="117.0" text-anchor="middle">W</text>
+  <text class="muted small" x="325.0" y="133.0" text-anchor="middle">frozen, d x d</text>
+  <rect class="trainable" x="230" y="200" width="88" height="44" rx="7"/>
+  <text class="ink lbl" x="274.0" y="218.0" text-anchor="middle">A</text>
+  <text class="muted small" x="274.0" y="234.0" text-anchor="middle">r x d</text>
+  <rect class="trainable" x="350" y="200" width="88" height="44" rx="7"/>
+  <text class="ink lbl" x="394.0" y="218.0" text-anchor="middle">B</text>
+  <text class="muted small" x="394.0" y="234.0" text-anchor="middle">d x r</text>
+  <rect class="data" x="530" y="150" width="120" height="44" rx="7"/>
+  <text class="ink lbl" x="590.0" y="176.0" text-anchor="middle">+</text>
+  <rect class="data" x="700" y="150" width="78" height="44" rx="7"/>
+  <text class="ink lbl" x="739.0" y="176.0" text-anchor="middle">h</text>
+  <path class="wire" d="M 150 172 L 200 172"/>
+  <path class="wire" d="M 200 121 L 200 222"/>
+  <path class="wire" d="M 200 121 L 248 121" marker-end="url(#a)"/>
+  <path class="wire" d="M 200 222 L 228 222" marker-end="url(#a)"/>
+  <path class="wire-a" d="M 318 222 L 348 222" marker-end="url(#aa)"/>
+  <path class="wire" d="M 400 121 L 470 121 L 470 165"/>
+  <path class="wire" d="M 470 165 L 528 165" marker-end="url(#a)"/>
+  <path class="wire" d="M 438 222 L 470 222 L 470 180"/>
+  <path class="wire-a" d="M 470 180 L 528 180" marker-end="url(#aa)"/>
+  <path class="wire" d="M 650 172 L 698 172" marker-end="url(#a)"/>
+  <text class="muted small" x="474" y="205" text-anchor="start">scale by alpha/r</text>
+  <text class="ink lbl" x="60" y="290" text-anchor="start">B is initialised to zero</text>
+  <text class="muted small" x="60" y="310" text-anchor="start">so BA = 0 and the adapted model starts exactly equal to the original - no warm-up shock.</text>
+  <text class="muted small" x="60" y="327" text-anchor="start">The alpha/r scaling means changing r does not force you to retune the learning rate.</text>
+  <text class="muted small" x="60" y="352" text-anchor="start">At inference, fold W' = W + (alpha/r) BA: identical outputs, zero added latency.</text>
+</svg>

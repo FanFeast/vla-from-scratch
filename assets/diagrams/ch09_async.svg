@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="452" viewBox="0 0 900 452" role="img">
+  <style>
+  .bg     { fill: #fcfcfd; }
+  .ink    { fill: #1b2430; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .muted  { fill: #66727f; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono   { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .title  { font-size: 17px; font-weight: 600; }
+  .sub    { font-size: 12px; }
+  .lbl    { font-size: 13px; font-weight: 600; }
+  .small  { font-size: 11px; }
+  .tiny   { font-size: 10px; }
+  .frozen    { fill: #e7edf6; stroke: #9cb1cd; stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .trainable { fill: #ffefd9; stroke: #df8f38; stroke-width: 1.6; }
+  .data      { fill: #f1f3f6; stroke: #c2c9d3; stroke-width: 1.3; }
+  .plain     { fill: none; stroke: #c2c9d3; stroke-width: 1.3; }
+  .wire   { stroke: #7d8896; stroke-width: 1.5; fill: none; }
+  .wire-a { stroke: #df8f38; stroke-width: 1.8; fill: none; }
+  .wire-d { stroke: #7d8896; stroke-width: 1.4; fill: none; stroke-dasharray: 4 3; }
+</style>
+  <defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7d8896"/>
+  </marker>
+  <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#df8f38"/>
+  </marker>
+</defs>
+  <rect class="bg" width="900" height="452"/>
+  <text class="ink title" x="24" y="30" text-anchor="start">Action chunking + async inference</text>
+  <text class="muted sub" x="24" y="49" text-anchor="start">Ch 9 - a 73 ms policy driving a 33 ms control loop, drawn to scale.</text>
+  <text class="ink lbl" x="40" y="113" text-anchor="start">Ideal</text>
+  <text class="muted small" x="40" y="130" text-anchor="start">no latency</text>
+  <path class="wire-d" d="M 150 134 L 800.0 134"/>
+  <rect class="data" x="150" y="98" width="519.4799999999999" height="26" rx="4"/>
+  <text class="ink lbl" x="409.73999999999995" y="115.0" text-anchor="middle"></text>
+  <text class="ink small" x="679.4799999999999" y="116" text-anchor="start">1980 ms</text>
+  <text class="ink lbl" x="40" y="205" text-anchor="start">Sync</text>
+  <text class="muted small" x="40" y="222" text-anchor="start">arm waits</text>
+  <path class="wire-d" d="M 150 226 L 800.0 226"/>
+  <rect class="trainable" x="150.0" y="190" width="18.875999999999998" height="26" rx="4"/>
+  <text class="ink lbl" x="159.438" y="207.0" text-anchor="middle"></text>
+  <rect class="data" x="168.876" y="190" width="86.58" height="26" rx="4"/>
+  <text class="ink lbl" x="212.166" y="207.0" text-anchor="middle"></text>
+  <rect class="trainable" x="255.45600000000002" y="190" width="18.875999999999998" height="26" rx="4"/>
+  <text class="ink lbl" x="264.894" y="207.0" text-anchor="middle"></text>
+  <rect class="data" x="274.332" y="190" width="86.58" height="26" rx="4"/>
+  <text class="ink lbl" x="317.622" y="207.0" text-anchor="middle"></text>
+  <rect class="trainable" x="360.91200000000003" y="190" width="18.875999999999998" height="26" rx="4"/>
+  <text class="ink lbl" x="370.35" y="207.0" text-anchor="middle"></text>
+  <rect class="data" x="379.788" y="190" width="86.58" height="26" rx="4"/>
+  <text class="ink lbl" x="423.07800000000003" y="207.0" text-anchor="middle"></text>
+  <rect class="trainable" x="466.36800000000005" y="190" width="18.875999999999998" height="26" rx="4"/>
+  <text class="ink lbl" x="475.80600000000004" y="207.0" text-anchor="middle"></text>
+  <rect class="data" x="485.244" y="190" width="86.58" height="26" rx="4"/>
+  <text class="ink lbl" x="528.534" y="207.0" text-anchor="middle"></text>
+  <rect class="trainable" x="571.8240000000001" y="190" width="18.875999999999998" height="26" rx="4"/>
+  <text class="ink lbl" x="581.2620000000001" y="207.0" text-anchor="middle"></text>
+  <rect class="data" x="590.7" y="190" width="86.58" height="26" rx="4"/>
+  <text class="ink lbl" x="633.99" y="207.0" text-anchor="middle"></text>
+  <rect class="trainable" x="677.28" y="190" width="18.875999999999998" height="26" rx="4"/>
+  <text class="ink lbl" x="686.718" y="207.0" text-anchor="middle"></text>
+  <rect class="data" x="696.156" y="190" width="86.58" height="26" rx="4"/>
+  <text class="ink lbl" x="739.4459999999999" y="207.0" text-anchor="middle"></text>
+  <text class="ink small" x="792.736" y="208" text-anchor="start">2432 ms</text>
+  <text class="muted small" x="792.736" y="225" text-anchor="start">+22.8%</text>
+  <text class="ink lbl" x="40" y="305" text-anchor="start">Async</text>
+  <text class="muted small" x="40" y="322" text-anchor="start">overlapped</text>
+  <path class="wire-d" d="M 150 326 L 800.0 326"/>
+  <rect class="trainable" x="150" y="290" width="18.875999999999998" height="26" rx="4"/>
+  <text class="ink lbl" x="159.438" y="307.0" text-anchor="middle"></text>
+  <rect class="data" x="168.876" y="290" width="519.4799999999999" height="26" rx="4"/>
+  <text class="ink lbl" x="428.616" y="307.0" text-anchor="middle"></text>
+  <rect class="trainable" x="229.48199999999997" y="254" width="18.875999999999998" height="20" rx="4"/>
+  <text class="ink lbl" x="238.91999999999996" y="268.0" text-anchor="middle"></text>
+  <rect class="trainable" x="316.062" y="254" width="18.875999999999998" height="20" rx="4"/>
+  <text class="ink lbl" x="325.5" y="268.0" text-anchor="middle"></text>
+  <rect class="trainable" x="402.642" y="254" width="18.875999999999998" height="20" rx="4"/>
+  <text class="ink lbl" x="412.08" y="268.0" text-anchor="middle"></text>
+  <rect class="trainable" x="489.222" y="254" width="18.875999999999998" height="20" rx="4"/>
+  <text class="ink lbl" x="498.65999999999997" y="268.0" text-anchor="middle"></text>
+  <rect class="trainable" x="575.8019999999999" y="254" width="18.875999999999998" height="20" rx="4"/>
+  <text class="ink lbl" x="585.2399999999999" y="268.0" text-anchor="middle"></text>
+  <text class="ink small" x="698.356" y="308" text-anchor="start">2081 ms</text>
+  <text class="muted small" x="698.356" y="325" text-anchor="start">+5.1%</text>
+  <text class="muted small" x="156" y="246" text-anchor="start">background thread - runs while the arm keeps moving</text>
+  <text class="ink sub" x="40" y="374" text-anchor="start">Sync pays 73 ms every K steps. Async pays it once, on the cold-start chunk.</text>
+  <rect class="data" x="40" y="391" width="16" height="12" rx="3"/>
+  <text class="muted small" x="64" y="401" text-anchor="start">executing control steps</text>
+  <rect class="trainable" x="40" y="411" width="16" height="12" rx="3"/>
+  <text class="muted small" x="64" y="421" text-anchor="start">policy forward pass (73 ms)</text>
+</svg>

@@ -1,0 +1,31 @@
+  Chapter 9: Real VLA Inference Latency (SmolVLA, Ch07)
+==============================================================
+[SmolVLA] Loading HuggingFaceTB/SmolVLM2-500M-Video-Instruct...
+Loading weights:   0%|          | 0/488 [00:00<?, ?it/s]Loading weights: 100%|██████████| 488/488 [00:00<00:00, 20912.81it/s]
+[transformers] SmolVLMModel LOAD REPORT from: HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[SmolVLA] VLM truncated: 32 -> 16 layers
+[SmolVLA] Frozen: vision=86.4M, VLM=204.6M, connector=11.8M
+[SmolVLA] Parameters: total=323.7M, trainable=20.8M, frozen=302.9M
+  checkpoint      : vla_epoch_100.pt
+  device          : cuda
+  chunk_size (K)  : 10
+  control period  : 33 ms  (30 Hz)
+  rollout steps   : 60
+
+  raw policy latency : 72.6 +/- 1.8 ms (min 70.4, max 78.1)
+  -> a blocking control loop stalls ~73 ms every 10 steps
+
+  ideal wall (steps x period) = 1980 ms
+
+  sync  | wall=   2432 ms | inferences= 6 | overhead=  22.8%
+  async | wall=   2081 ms | inferences= 7 | overhead=   5.1%
+
+  Async runs the policy in a background thread while the robot keeps
+  executing buffered actions, so it only blocks on the cold-start chunk.
+  Sync pays the full policy latency every time the chunk empties.

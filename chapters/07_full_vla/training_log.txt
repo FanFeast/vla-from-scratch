@@ -1,0 +1,73 @@
+
+============================================================
+  Chapter 7: Full VLA -- so100
+============================================================
+  Action dim: 6
+  State dim:  6
+  Chunk size: 10
+  Epochs:     200
+  Batch size: 32
+  Device:     cuda
+============================================================
+
+[SmolVLA] Loading HuggingFaceTB/SmolVLM2-500M-Video-Instruct...
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/488 [00:00<?, ?it/s]Loading weights: 100%|██████████| 488/488 [00:00<00:00, 18039.06it/s]
+[transformers] [1mSmolVLMModel LOAD REPORT[0m from: HuggingFaceTB/SmolVLM2-500M-Video-Instruct
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[SmolVLA] VLM truncated: 32 -> 16 layers
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[SmolVLA] Frozen: vision=86.4M, VLM=204.6M, connector=11.8M
+[SmolVLA] Parameters: total=323.7M, trainable=20.8M, frozen=302.9M
+
+[extract] Loading lerobot/svla_so100_pickplace...
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:01<00:05,  1.73s/it]Fetching 4 files: 100%|██████████| 4/4 [00:01<00:00,  2.31it/s]
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  11%|█         | 1/9 [00:00<00:01,  6.97it/s]Fetching 9 files:  33%|███▎      | 3/9 [00:00<00:02,  3.00it/s]Fetching 9 files:  89%|████████▉ | 8/9 [00:08<00:01,  1.23s/it]Fetching 9 files: 100%|██████████| 9/9 [00:08<00:00,  1.03it/s]
+[extract] lerobot/svla_so100_pickplace: 19631 frames, 50 episodes
+Traceback (most recent call last):
+  File "/home/mukul/fanfeast-stuff/vla-from-scratch/chapters/07_full_vla/train.py", line 817, in <module>
+    main()
+  File "/home/mukul/fanfeast-stuff/vla-from-scratch/chapters/07_full_vla/train.py", line 813, in main
+    run_preset(args.preset, args.skip_extract, args.eval_only)
+  File "/home/mukul/fanfeast-stuff/vla-from-scratch/chapters/07_full_vla/train.py", line 732, in run_preset
+    data = extract_and_cache(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/fanfeast-stuff/vla-from-scratch/chapters/07_full_vla/train.py", line 189, in extract_and_cache
+    vt = model.extract_vision_tokens(pixel_values)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/fanfeast-stuff/vla-from-scratch/chapters/07_full_vla/model.py", line 349, in extract_vision_tokens
+    outputs = self.vision_encoder(pixel_values=pixel_values)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/transformers/utils/generic.py", line 976, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/transformers/utils/output_capturing.py", line 248, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/transformers/models/smolvlm/modeling_smolvlm.py", line 353, in forward
+    hidden_states = self.embeddings(pixel_values=pixel_values, patch_attention_mask=patch_attention_mask)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mukul/miniconda3/lib/python3.12/site-packages/transformers/models/smolvlm/modeling_smolvlm.py", line 93, in forward
+    batch_size, _, max_im_h, max_im_w = pixel_values.shape
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 4)

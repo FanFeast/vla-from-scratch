@@ -1,0 +1,15 @@
+[project]
+name = "ch04-action-representations"
+version = "0.1.0"
+description = "Chapter 4: Discrete, continuous, and diffusion action heads"
+requires-python = "==3.12.*"
+dependencies = [
+    "numpy>=1.24",
+    "torch>=2.1",
+    "torchvision>=0.16",
+    "matplotlib>=3.7",
+    "gymnasium>=0.29",
+    "pygame>=2.5",
+    "transformers>=4.36",
+    "pytest>=7.0",
+]

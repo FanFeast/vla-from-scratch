@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="398" viewBox="0 0 880 398" role="img">
+  <style>
+  .bg     { fill: #fcfcfd; }
+  .ink    { fill: #1b2430; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .muted  { fill: #66727f; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono   { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .title  { font-size: 17px; font-weight: 600; }
+  .sub    { font-size: 12px; }
+  .lbl    { font-size: 13px; font-weight: 600; }
+  .small  { font-size: 11px; }
+  .tiny   { font-size: 10px; }
+  .frozen    { fill: #e7edf6; stroke: #9cb1cd; stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .trainable { fill: #ffefd9; stroke: #df8f38; stroke-width: 1.6; }
+  .data      { fill: #f1f3f6; stroke: #c2c9d3; stroke-width: 1.3; }
+  .plain     { fill: none; stroke: #c2c9d3; stroke-width: 1.3; }
+  .wire   { stroke: #7d8896; stroke-width: 1.5; fill: none; }
+  .wire-a { stroke: #df8f38; stroke-width: 1.8; fill: none; }
+  .wire-d { stroke: #7d8896; stroke-width: 1.4; fill: none; stroke-dasharray: 4 3; }
+</style>
+  <defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7d8896"/>
+  </marker>
+  <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#df8f38"/>
+  </marker>
+</defs>
+  <rect class="bg" width="880" height="398"/>
+  <text class="ink title" x="24" y="30" text-anchor="start">Three ways to represent an action</text>
+  <text class="muted sub" x="24" y="49" text-anchor="start">Ch 4 - same features in, very different heads out.</text>
+  <rect class="data" x="40" y="110" width="120" height="46" rx="7"/>
+  <text class="ink lbl" x="100.0" y="129.0" text-anchor="middle">Features</text>
+  <text class="muted small" x="100.0" y="145.0" text-anchor="middle">vision + state</text>
+  <rect class="trainable" x="215" y="74" width="175" height="46" rx="7"/>
+  <text class="ink lbl" x="302.5" y="93.0" text-anchor="middle">Discrete</text>
+  <text class="muted small" x="302.5" y="109.0" text-anchor="middle">256 bins per dim</text>
+  <rect class="trainable" x="215" y="138" width="175" height="46" rx="7"/>
+  <text class="ink lbl" x="302.5" y="157.0" text-anchor="middle">Regression</text>
+  <text class="muted small" x="302.5" y="173.0" text-anchor="middle">direct MSE</text>
+  <rect class="trainable" x="215" y="202" width="175" height="46" rx="7"/>
+  <text class="ink lbl" x="302.5" y="221.0" text-anchor="middle">Diffusion</text>
+  <text class="muted small" x="302.5" y="237.0" text-anchor="middle">iterative denoise</text>
+  <path class="wire" d="M 160 133 L 190 133"/>
+  <path class="wire" d="M 190 97 L 190 225"/>
+  <path class="wire" d="M 190 97 L 213 97" marker-end="url(#a)"/>
+  <path class="wire" d="M 190 161 L 213 161" marker-end="url(#a)"/>
+  <path class="wire" d="M 190 225 L 213 225" marker-end="url(#a)"/>
+  <text class="muted small" x="408" y="88" text-anchor="start">argmax over 256 classes</text>
+  <text class="muted small" x="408" y="105" text-anchor="start">RT-2 / OpenVLA</text>
+  <text class="muted small" x="408" y="152" text-anchor="start">one pass, exact, cheapest</text>
+  <text class="muted small" x="408" y="169" text-anchor="start">averages multi-modal demos</text>
+  <text class="muted small" x="408" y="216" text-anchor="start">10 denoise steps per action</text>
+  <text class="muted small" x="408" y="233" text-anchor="start">needs real capacity (Ch 6)</text>
+  <rect class="data" x="660" y="74" width="180" height="190" rx="7"/>
+  <text class="ink lbl" x="750.0" y="173.0" text-anchor="middle"></text>
+  <text class="ink lbl" x="750.0" y="94" text-anchor="middle">Action chunk</text>
+  <rect class="plain" x="682" y="108" width="136" height="24" rx="5"/>
+  <text class="muted small" x="750.0" y="124.0" text-anchor="middle">a[t+0]</text>
+  <rect class="plain" x="682" y="142" width="136" height="24" rx="5"/>
+  <text class="muted small" x="750.0" y="158.0" text-anchor="middle">a[t+1]</text>
+  <rect class="plain" x="682" y="176" width="136" height="24" rx="5"/>
+  <text class="muted small" x="750.0" y="192.0" text-anchor="middle">a[t+2]</text>
+  <rect class="plain" x="682" y="210" width="136" height="24" rx="5"/>
+  <text class="muted small" x="750.0" y="226.0" text-anchor="middle">a[t+3]</text>
+  <text class="muted small" x="750" y="254" text-anchor="middle">K = 4</text>
+  <text class="ink sub" x="40" y="300" text-anchor="start">Chunking is the biggest lever: K=4 roughly doubles success for every head type.</text>
+  <text class="muted small" x="40" y="322" text-anchor="start">Full preset -</text>
+  <text class="muted small" x="126" y="322" text-anchor="start">Discrete 69% -&gt; 82%</text>
+  <text class="muted small" x="280" y="322" text-anchor="start">Regression 86% -&gt; 95%</text>
+  <text class="muted small" x="450" y="322" text-anchor="start">Diffusion 1% -&gt; 0% (too small to learn)</text>
+  <rect class="trainable" x="40" y="349" width="16" height="12" rx="3"/>
+  <text class="muted small" x="64" y="359" text-anchor="start">trainable head</text>
+  <rect class="data" x="40" y="369" width="16" height="12" rx="3"/>
+  <text class="muted small" x="64" y="379" text-anchor="start">tensor</text>
+</svg>

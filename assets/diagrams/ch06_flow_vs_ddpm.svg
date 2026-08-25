@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="400" viewBox="0 0 840 400" role="img">
+  <style>
+  .bg     { fill: #fcfcfd; }
+  .ink    { fill: #1b2430; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .muted  { fill: #66727f; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono   { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .title  { font-size: 17px; font-weight: 600; }
+  .sub    { font-size: 12px; }
+  .lbl    { font-size: 13px; font-weight: 600; }
+  .small  { font-size: 11px; }
+  .tiny   { font-size: 10px; }
+  .frozen    { fill: #e7edf6; stroke: #9cb1cd; stroke-width: 1.4; stroke-dasharray: 5 3; }
+  .trainable { fill: #ffefd9; stroke: #df8f38; stroke-width: 1.6; }
+  .data      { fill: #f1f3f6; stroke: #c2c9d3; stroke-width: 1.3; }
+  .plain     { fill: none; stroke: #c2c9d3; stroke-width: 1.3; }
+  .wire   { stroke: #7d8896; stroke-width: 1.5; fill: none; }
+  .wire-a { stroke: #df8f38; stroke-width: 1.8; fill: none; }
+  .wire-d { stroke: #7d8896; stroke-width: 1.4; fill: none; stroke-dasharray: 4 3; }
+</style>
+  <defs>
+  <marker id="a" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#7d8896"/>
+  </marker>
+  <marker id="aa" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#df8f38"/>
+  </marker>
+</defs>
+  <rect class="bg" width="840" height="400"/>
+  <text class="ink title" x="24" y="30" text-anchor="start">Why flow matching samples in fewer steps</text>
+  <text class="muted sub" x="24" y="49" text-anchor="start">Ch 6 - both go from noise to action; only the path differs.</text>
+  <path class="wire" d="M 150.0 300.0 L 150.4 295.0 L 151.5 289.9 L 153.3 284.5 L 155.8 278.9 L 159.1 273.2 L 163.1 267.4 L 167.7 261.6 L 173.1 255.6 L 179.2 249.7 L 186.0 243.7 L 193.4 237.8 L 201.5 231.9 L 210.3 226.1 L 219.6 220.3 L 229.7 214.7 L 240.3 209.3 L 251.5 203.9 L 263.3 198.8 L 275.6 193.8 L 288.5 189.0 L 301.9 184.3 L 315.8 179.9 L 330.1 175.7 L 345.0 171.7 L 360.2 167.9 L 375.9 164.3 L 391.9 160.9 L 408.4 157.7 L 425.1 154.7 L 442.2 151.9 L 459.5 149.2 L 477.1 146.7 L 495.0 144.3 L 513.0 142.1 L 531.2 140.0 L 549.6 138.0 L 568.1 136.1 L 586.7 134.2 L 605.3 132.4 L 624.0 130.6"/>
+  <circle cx="586.7" cy="134.2" r="3.6" fill="#7d8896"/>
+  <circle cx="513.0" cy="142.1" r="3.6" fill="#7d8896"/>
+  <circle cx="442.2" cy="151.9" r="3.6" fill="#7d8896"/>
+  <circle cx="375.9" cy="164.3" r="3.6" fill="#7d8896"/>
+  <circle cx="315.8" cy="179.9" r="3.6" fill="#7d8896"/>
+  <circle cx="263.3" cy="198.8" r="3.6" fill="#7d8896"/>
+  <circle cx="219.6" cy="220.3" r="3.6" fill="#7d8896"/>
+  <circle cx="186.0" cy="243.7" r="3.6" fill="#7d8896"/>
+  <circle cx="163.1" cy="267.4" r="3.6" fill="#7d8896"/>
+  <circle cx="151.5" cy="289.9" r="3.6" fill="#7d8896"/>
+  <path class="wire-a" d="M 150 300 L 630 130"/>
+  <circle cx="198.0" cy="283.0" r="4.2" fill="#df8f38"/>
+  <circle cx="246.0" cy="266.0" r="4.2" fill="#df8f38"/>
+  <circle cx="294.0" cy="249.0" r="4.2" fill="#df8f38"/>
+  <circle cx="342.0" cy="232.0" r="4.2" fill="#df8f38"/>
+  <circle cx="390.0" cy="215.0" r="4.2" fill="#df8f38"/>
+  <circle cx="438.0" cy="198.0" r="4.2" fill="#df8f38"/>
+  <circle cx="486.0" cy="181.0" r="4.2" fill="#df8f38"/>
+  <circle cx="534.0" cy="164.0" r="4.2" fill="#df8f38"/>
+  <circle cx="582.0" cy="147.0" r="4.2" fill="#df8f38"/>
+  <circle cx="150" cy="300" r="9" fill="#1b2430"/>
+  <circle cx="630" cy="130" r="9" fill="#1b2430"/>
+  <text class="ink lbl" x="150" y="332" text-anchor="middle">noise  x0</text>
+  <text class="ink lbl" x="630" y="110" text-anchor="middle">action  x1</text>
+  <circle cx="120" cy="146" r="5.5" fill="#7d8896"/>
+  <text class="ink lbl" x="136" y="151" text-anchor="start">DDPM - curved</text>
+  <text class="muted small" x="136" y="169" text-anchor="start">velocity changes along</text>
+  <text class="muted small" x="136" y="184" text-anchor="start">the path, so coarse steps</text>
+  <text class="muted small" x="136" y="199" text-anchor="start">accumulate error</text>
+  <circle cx="446" cy="316" r="5.5" fill="#df8f38"/>
+  <text class="ink lbl" x="462" y="321" text-anchor="start">flow matching - straight</text>
+  <text class="muted small" x="462" y="339" text-anchor="start">velocity is constant, so 10 Euler steps</text>
+  <text class="muted small" x="462" y="354" text-anchor="start">integrate it almost exactly</text>
+  <text class="ink small" x="40" y="382" text-anchor="start">PushT, 200 epochs:</text>
+  <text class="muted small" x="166" y="382" text-anchor="start">FM K=4  29.0% coverage @ 13.0 ms</text>
+  <text class="muted small" x="416" y="382" text-anchor="start">DDPM K=4  5.3% coverage @ 28.4 ms</text>
+</svg>

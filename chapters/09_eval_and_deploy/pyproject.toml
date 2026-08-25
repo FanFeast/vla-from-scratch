@@ -1,0 +1,28 @@
+[project]
+name = "ch09-eval-and-deploy"
+version = "0.1.0"
+description = "Chapter 9: Evaluation (LIBERO) and async deployment"
+requires-python = "==3.12.*"
+dependencies = [
+    "numpy>=1.24",
+    "pytest>=7.0",
+]
+
+# The core harness (async_inference.py, eval_libero.py, tests) is intentionally
+# numpy-only so it runs anywhere. The real-VLA latency benchmark
+# (benchmark_latency.py) needs the Ch07 model stack; install it as an extra:
+#   uv sync --extra vla
+[project.optional-dependencies]
+vla = [
+    "torch>=2.1",
+    "torchvision>=0.16",
+    "transformers>=4.36",
+    "matplotlib>=3.7",
+    "pillow>=10.0",
+]
+
+# The real LIBERO benchmark (eval_libero.py --task-suite libero_*) is not on
+# PyPI; install it from source alongside its simulator deps:
+#   pip install robosuite mujoco
+#   pip install git+https://github.com/Lifelong-Robot-Learning/LIBERO.git
+# Until then, the mock environment exercises the full eval harness.
